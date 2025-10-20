@@ -1,5 +1,9 @@
-# Tesina-deteccion-fraudes-erc20
-El proyecto desarrolla una herramienta que detecta patrones de manipulación y posibles estafas en tokens ERC-20 mediante análisis on-chain y machine learning en BigQuery. Clasifica tokens según su confiabilidad y ofrece una base funcional para detección temprana de fraudes cripto.
+# Tesina - Detección de Fraudes en Tokens ERC-20
+
+Versión inicial simplificada del proyecto de tesis que desarrolla una herramienta para detectar patrones de manipulación y posibles estafas en tokens **ERC-20**, combinando análisis **on-chain** y **machine learning** con datos de **BigQuery**.  
+Esta versión presenta una base funcional y resumida de la herramienta para detección temprana de fraudes cripto.
+
+---
 
 # Detección de Patrones de Manipulación en Mercados Criptográficos
 
@@ -11,10 +15,10 @@ El proyecto desarrolla una herramienta que detecta patrones de manipulación y p
 ---
 
 ## 🧠 Descripción
-Este proyecto implementa una herramienta de detección temprana de fraudes en tokens **ERC-20**, combinando **análisis on-chain** con **modelos de machine learning**.  
-Los datos se obtienen desde **Google BigQuery**, aplicando técnicas de procesamiento, balanceo y modelado supervisado.
+Esta versión inicial del proyecto implementa una herramienta básica de detección de fraudes en tokens **ERC-20**, usando **modelos supervisados** y datos on-chain.  
+El enfoque combina **Google BigQuery** para la extracción y procesamiento de datos, junto con modelos de aprendizaje automático de complejidad media.
 
-La herramienta permite estimar la probabilidad de que un token presente patrones fraudulentos (p. ej. *rugpull*, *honeypot* o *ponzi*), entregando una interfaz funcional para usuarios no técnicos.
+El objetivo principal de esta versión es ofrecer una base reproducible y fácilmente extensible, priorizando claridad y simplicidad sobre optimización.
 
 ---
 
@@ -24,8 +28,8 @@ La herramienta permite estimar la probabilidad de que un token presente patrones
 |--------------------|-------------|
 | `tfm_2025_09_basededatos.ipynb` | Extracción y construcción de la base de datos desde BigQuery y CoinGecko. |
 | `tfm_2025_09_preprocesado.ipynb` | Limpieza, imputación, codificación y escalado de datos. |
-| `tfm_2025_09_modelado.ipynb` | Entrenamiento de modelos (Logistic Regression, Random Forest, XGBoost, LightGBM). |
-| `tfm_2025_09_gui.py` | Interfaz gráfica (Tkinter) para clasificación e inferencia interactiva. |
+| `tfm_2025_09_modelado.ipynb` | Entrenamiento de modelos básicos (Logistic Regression, Random Forest, XGBoost, LightGBM). |
+| `tfm_2025_09_gui.py` | Interfaz gráfica inicial (Tkinter) para pruebas de clasificación. |
 
 ---
 
@@ -35,32 +39,35 @@ La herramienta permite estimar la probabilidad de que un token presente patrones
 - **XGBoost / LightGBM**  
 - **Gradient Boosting**
 
+> 💡 En esta versión, los modelos fueron entrenados sobre un subconjunto reducido del dataset original para facilitar la replicación.
+
 ---
 
 ## 📊 Dataset
-Datos públicos on-chain desde **BigQuery (GCP)**, procesando más de **5 000 tokens** y varios terabytes de información.  
-Variables principales:  
+Datos públicos on-chain desde **BigQuery (GCP)**, procesando información resumida de ~5 000 tokens ERC-20.  
+Variables incluidas:
 - Número de transferencias  
 - Concentración top 10 holders  
-- Actividad y antigüedad del token  
-- Desviación estándar y promedio diario de transferencias  
+- Antigüedad del token  
+- Actividad media y desviación de transferencias  
 
 ---
 
 ## 🚀 Resultados
-- Logistic Regression alcanzó los mejores resultados en detección equilibrada de clases.  
-- Los modelos complejos fueron menos estables por falta de datos etiquetados.  
-- Se desarrolló un **dashboard funcional** para uso no técnico.  
+- **Regresión Logística** obtuvo el mejor equilibrio entre precisión y estabilidad.  
+- Modelos complejos mostraron sobreajuste en esta versión reducida.  
+- Se implementó una **interfaz gráfica simple** para realizar inferencias locales.
 
 ---
 
-## 🔮 Recomendaciones futuras
-- Incorporar fuentes adicionales (Nansen, Dune, Etherscan API).  
-- Mejorar el etiquetado de tokens y aumentar el dataset balanceado.  
-- Extender la herramienta a un **entorno web interactivo**.
+## 🔮 Próximos pasos
+- Integrar fuentes adicionales (Nansen, Dune, Etherscan API).  
+- Aumentar el tamaño y balanceo del dataset.  
+- Migrar la herramienta hacia un entorno web interactivo.  
 
 ---
 
 ## 📄 Licencia
-Este proyecto se distribuye bajo la **Licencia MIT**, permitiendo uso libre, modificación y distribución con atribución al autor.
+Versión simplificada publicada bajo la **Licencia MIT**, permitiendo uso, modificación y redistribución con atribución al autor original.
 
+---
